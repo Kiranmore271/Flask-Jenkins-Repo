@@ -1,9 +1,14 @@
-
 from flask import Flask
 
-app = Flask(__name__)
+#create the application Object
+app = Flask("myFlaskApp")
 
-@app.route('/')
-def home():
-    return "Welcome to the Dockerized Flask App! using kubernetes!!!"
+#Define the route
+@app.route("/sayHello")
+def greet():
+    return "<h3> Hello from Flask APP - Jenkins </h3> <hr>"
 
+
+#run the application
+
+app.run('192.168.162.188', 5000, debug=True, use_reloader=True)
